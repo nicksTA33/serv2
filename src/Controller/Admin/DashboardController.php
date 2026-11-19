@@ -52,7 +52,7 @@ class DashboardController extends AbstractDashboardController
         
         yield MenuItem::linkTo(CarCrudController::class, 'Автомобілі', 'fas fa-car');
         yield MenuItem::linkTo(MotorcycleCrudController::class, 'Мотоцикли', 'fas fa-motorcycle');
-        
+        yield MenuItem::linkTo(VehicleCategoryCrudController::class, 'Категорії', 'fas fa-tags');
 
     }
 }

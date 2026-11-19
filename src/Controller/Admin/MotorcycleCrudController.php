@@ -4,11 +4,9 @@ namespace App\Controller\Admin;
 
 use App\Entity\AdminMotorcycle;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
-
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class MotorcycleCrudController extends AbstractCrudController
 {
@@ -16,17 +14,6 @@ class MotorcycleCrudController extends AbstractCrudController
     {
         return AdminMotorcycle::class;
     }
-
-    /*
-    public function configureFields(string $pageName): iterable
-    {
-        return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
-        ];
-    }
-    */
 
     public function configureFields(string $pageName): iterable
     {
@@ -36,6 +23,7 @@ class MotorcycleCrudController extends AbstractCrudController
             TextField::new('color'),
             TextField::new('make'),
             TextField::new('model'),
+            AssociationField::new('category', 'Категорія')->setRequired(false),
             NumberField::new('price'),
             TextField::new('image'),
         ];

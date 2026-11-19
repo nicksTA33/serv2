@@ -32,8 +32,12 @@
                                 {% if vehicle.image is not empty %}
                                     <img src="{{ asset('images/' ~ vehicle.image) }}" alt="">
                                 {% endif %}
-                                <h2>{{ vehicle.Make }} {{ vehicle.Model }}</h2>
+                                <h2>{{ vehicle.make }} {{ vehicle.model }}</h2>
+                                {% if vehicle.category %}
+                                    <p>Категорія: {{ vehicle.category }}</p>
+                                {% endif %}
                                 <p class="price">{{ vehicle.price }} грн/доба</p>
+                                <a href="{{ path('app_available_show', {id: vehicle.id}) }}">Детальніше</a>
                                 <button>Забронювати</button>
                             </div>
                         </div>

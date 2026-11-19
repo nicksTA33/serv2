@@ -33,6 +33,22 @@ class AdminMotorcycle
     #[ORM\Column(name: 'ImageName', length: 255)]
     protected ?string $image = null;
 
+     #[ORM\ManyToOne(targetEntity: VehicleCategory::class)]
+    #[ORM\JoinColumn(name: 'category_id', referencedColumnName: 'id', nullable: true)]
+    private ?VehicleCategory $category = null;
+
+    public function getCategory(): ?VehicleCategory
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?VehicleCategory $category): static
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
     public function getVin(): ?string
     {
         return $this->vin;

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ vehicle.make }} {{ vehicle.model }}</title>
+    <link rel="stylesheet" href="{{ asset('styles.css') }}">
+</head>
+<body>
+    <a href="{{ path('app_available') }}">&larr; Назад до списку</a>
+    <h1>{{ vehicle.make }} {{ vehicle.model }}</h1>
+    {% if vehicle.image %}
+        <img src="{{ asset('images/' ~ vehicle.image) }}" alt="{{ vehicle.make }} {{ vehicle.model }}" style="max-width: 400px;">
+    {% endif %}
+    <p><strong>Ціна:</strong> {{ vehicle.price }} грн/доба</p>
+    <p><strong>Категорія:</strong> {{ vehicle.category ?: 'Без категорії' }}</p>
+</body>
+</html>

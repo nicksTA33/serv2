@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прокат</title>
+    <link rel="stylesheet" href="{{ asset('styles.css') }}" />
+</head>
+
+<body>
+    <div class = "grid-container">
+            <header class = "header">
+                    <h1>Список доступних транспортних засобів</h1>
+                    
+            </header>
+
+                <nav class = "left-menu">
+                    <ul>
+                        <li><a href="{{ path('app_rent') }}">Головна</a></li>
+                        <li><a href="{{ path('app_requirements') }}">Вимоги до клієнтів</a></li>
+                        <li><a href="{{ path('app_contacts') }}">Контакти</a></li>
+                    </ul>
+
+                </nav>
+
+                <main class = "content">
+
+                    <div class = "flex-container">
+                    {% for vehicle in vehicles %}
+                        <div class="flex-item">
+                            <div class="card">
+                                {% if vehicle.image is not empty %}
+                                    <img src="{{ asset('images/' ~ vehicle.image) }}" alt="">
+                                {% endif %}
+                                <h2>{{ vehicle.Make }} {{ vehicle.Model }}</h2>
+                                <p class="price">{{ vehicle.price }} грн/доба</p>
+                                <button>Забронювати</button>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </div>
+                    </main>
+
+        <footer class = "footer">
+            <p>&copy; 2026 AutoRent. Усі права захищені.</p>
+
+        </footer>
+    </div>
+</body>
+</html>
